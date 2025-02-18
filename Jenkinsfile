@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage("Build") {
+        stage('Build') {
             steps {
-                sh "mvn compile"
+                sh 'mvn compile'
             }
         }
 
         stage("Test") {
             steps {
-                wrap([$class: "Xvfb", debug: true, autoDisplayName: true]) {
-                    sh "mvn test"
+                wrap([$class: 'Xvfb', debug: true, DisplayName: 31,displayNameOffset:0,timeout:10]) {
+                    sh 'mvn test'
                 }
             }
         }
